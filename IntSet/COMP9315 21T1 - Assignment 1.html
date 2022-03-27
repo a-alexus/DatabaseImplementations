@@ -1,0 +1,967 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>COMP9315 21T1 - Assignment 1</title>
+<link rel="stylesheet" type="text/css" href="COMP9315%2021T1%20-%20Assignment%201_files/course.css"><script type="text/javascript" async="" src="COMP9315%2021T1%20-%20Assignment%201_files/MathJax.js"></script><style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 5px 0px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -khtml-border-radius: 5px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 1px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: .7em}
+.MathJax_MenuRadioCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuLabel {padding: 1px 2em 3px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #DDDDDD; margin: 4px 3px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: #606872; color: white}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1px; bottom: 2px; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover, .MJXp-munder {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > *, .MJXp-munder > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style><style type="text/css">.mjx-chtml {display: inline-block; line-height: 0; text-indent: 0; text-align: left; text-transform: none; font-style: normal; font-weight: normal; font-size: 100%; font-size-adjust: none; letter-spacing: normal; word-wrap: normal; word-spacing: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0; min-height: 0; border: 0; margin: 0; padding: 1px 0}
+.MJXc-display {display: block; text-align: center; margin: 1em 0; padding: 0}
+.mjx-chtml[tabindex]:focus, body :focus .mjx-chtml[tabindex] {display: inline-table}
+.mjx-full-width {text-align: center; display: table-cell!important; width: 10000em}
+.mjx-math {display: inline-block; border-collapse: separate; border-spacing: 0}
+.mjx-math * {display: inline-block; -webkit-box-sizing: content-box!important; -moz-box-sizing: content-box!important; box-sizing: content-box!important; text-align: left}
+.mjx-numerator {display: block; text-align: center}
+.mjx-denominator {display: block; text-align: center}
+.MJXc-stacked {height: 0; position: relative}
+.MJXc-stacked > * {position: absolute}
+.MJXc-bevelled > * {display: inline-block}
+.mjx-stack {display: inline-block}
+.mjx-op {display: block}
+.mjx-under {display: table-cell}
+.mjx-over {display: block}
+.mjx-over > * {padding-left: 0px!important; padding-right: 0px!important}
+.mjx-under > * {padding-left: 0px!important; padding-right: 0px!important}
+.mjx-stack > .mjx-sup {display: block}
+.mjx-stack > .mjx-sub {display: block}
+.mjx-prestack > .mjx-presup {display: block}
+.mjx-prestack > .mjx-presub {display: block}
+.mjx-delim-h > .mjx-char {display: inline-block}
+.mjx-surd {vertical-align: top}
+.mjx-mphantom * {visibility: hidden}
+.mjx-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 2px 3px; font-style: normal; font-size: 90%}
+.mjx-annotation-xml {line-height: normal}
+.mjx-menclose > svg {fill: none; stroke: currentColor}
+.mjx-mtr {display: table-row}
+.mjx-mlabeledtr {display: table-row}
+.mjx-mtd {display: table-cell; text-align: center}
+.mjx-label {display: table-row}
+.mjx-box {display: inline-block}
+.mjx-block {display: block}
+.mjx-span {display: inline}
+.mjx-char {display: block; white-space: pre}
+.mjx-itable {display: inline-table; width: auto}
+.mjx-row {display: table-row}
+.mjx-cell {display: table-cell}
+.mjx-table {display: table; width: 100%}
+.mjx-line {display: block; height: 0}
+.mjx-strut {width: 0; padding-top: 1em}
+.mjx-vsize {width: 0}
+.MJXc-space1 {margin-left: .167em}
+.MJXc-space2 {margin-left: .222em}
+.MJXc-space3 {margin-left: .278em}
+.mjx-chartest {display: block; visibility: hidden; position: absolute; top: 0; line-height: normal; font-size: 500%}
+.mjx-chartest .mjx-char {display: inline}
+.mjx-chartest .mjx-box {padding-top: 1000px}
+.MJXc-processing {visibility: hidden; position: fixed; width: 0; height: 0; overflow: hidden}
+.MJXc-processed {display: none}
+.mjx-test {font-style: normal; font-weight: normal; font-size: 100%; font-size-adjust: none; text-indent: 0; text-transform: none; letter-spacing: normal; word-spacing: normal; overflow: hidden; height: 1px}
+.mjx-test.mjx-test-display {display: table!important}
+.mjx-test.mjx-test-inline {display: inline!important; margin-right: -1px}
+.mjx-test.mjx-test-default {display: block!important; clear: both}
+.mjx-ex-box {display: inline-block!important; position: absolute; overflow: hidden; min-height: 0; max-height: none; padding: 0; border: 0; margin: 0; width: 1px; height: 60ex}
+.mjx-test-inline .mjx-left-box {display: inline-block; width: 0; float: left}
+.mjx-test-inline .mjx-right-box {display: inline-block; width: 0; float: right}
+.mjx-test-display .mjx-right-box {display: table-cell!important; width: 10000em!important; min-width: 0; max-width: none; padding: 0; border: 0; margin: 0}
+#MathJax_CHTML_Tooltip {background-color: InfoBackground; color: InfoText; border: 1px solid black; box-shadow: 2px 2px 5px #AAAAAA; -webkit-box-shadow: 2px 2px 5px #AAAAAA; -moz-box-shadow: 2px 2px 5px #AAAAAA; -khtml-box-shadow: 2px 2px 5px #AAAAAA; padding: 3px 4px; z-index: 401; position: absolute; left: 0; top: 0; width: auto; height: auto; display: none}
+.mjx-chtml .mjx-noError {line-height: 1.2; vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+.MJXc-TeX-unknown-R {font-family: STIXGeneral,'Cambria Math','Arial Unicode MS',serif; font-style: normal; font-weight: normal}
+.MJXc-TeX-unknown-I {font-family: STIXGeneral,'Cambria Math','Arial Unicode MS',serif; font-style: italic; font-weight: normal}
+.MJXc-TeX-unknown-B {font-family: STIXGeneral,'Cambria Math','Arial Unicode MS',serif; font-style: normal; font-weight: bold}
+.MJXc-TeX-unknown-BI {font-family: STIXGeneral,'Cambria Math','Arial Unicode MS',serif; font-style: italic; font-weight: bold}
+.MJXc-TeX-ams-R {font-family: MJXc-TeX-ams-R,MJXc-TeX-ams-Rw}
+.MJXc-TeX-cal-B {font-family: MJXc-TeX-cal-B,MJXc-TeX-cal-Bx,MJXc-TeX-cal-Bw}
+.MJXc-TeX-frak-R {font-family: MJXc-TeX-frak-R,MJXc-TeX-frak-Rw}
+.MJXc-TeX-frak-B {font-family: MJXc-TeX-frak-B,MJXc-TeX-frak-Bx,MJXc-TeX-frak-Bw}
+.MJXc-TeX-math-BI {font-family: MJXc-TeX-math-BI,MJXc-TeX-math-BIx,MJXc-TeX-math-BIw}
+.MJXc-TeX-sans-R {font-family: MJXc-TeX-sans-R,MJXc-TeX-sans-Rw}
+.MJXc-TeX-sans-B {font-family: MJXc-TeX-sans-B,MJXc-TeX-sans-Bx,MJXc-TeX-sans-Bw}
+.MJXc-TeX-sans-I {font-family: MJXc-TeX-sans-I,MJXc-TeX-sans-Ix,MJXc-TeX-sans-Iw}
+.MJXc-TeX-script-R {font-family: MJXc-TeX-script-R,MJXc-TeX-script-Rw}
+.MJXc-TeX-type-R {font-family: MJXc-TeX-type-R,MJXc-TeX-type-Rw}
+.MJXc-TeX-cal-R {font-family: MJXc-TeX-cal-R,MJXc-TeX-cal-Rw}
+.MJXc-TeX-main-B {font-family: MJXc-TeX-main-B,MJXc-TeX-main-Bx,MJXc-TeX-main-Bw}
+.MJXc-TeX-main-I {font-family: MJXc-TeX-main-I,MJXc-TeX-main-Ix,MJXc-TeX-main-Iw}
+.MJXc-TeX-main-R {font-family: MJXc-TeX-main-R,MJXc-TeX-main-Rw}
+.MJXc-TeX-math-I {font-family: MJXc-TeX-math-I,MJXc-TeX-math-Ix,MJXc-TeX-math-Iw}
+.MJXc-TeX-size1-R {font-family: MJXc-TeX-size1-R,MJXc-TeX-size1-Rw}
+.MJXc-TeX-size2-R {font-family: MJXc-TeX-size2-R,MJXc-TeX-size2-Rw}
+.MJXc-TeX-size3-R {font-family: MJXc-TeX-size3-R,MJXc-TeX-size3-Rw}
+.MJXc-TeX-size4-R {font-family: MJXc-TeX-size4-R,MJXc-TeX-size4-Rw}
+.MJXc-TeX-vec-R {font-family: MJXc-TeX-vec-R,MJXc-TeX-vec-Rw}
+.MJXc-TeX-vec-B {font-family: MJXc-TeX-vec-B,MJXc-TeX-vec-Bx,MJXc-TeX-vec-Bw}
+@font-face {font-family: MJXc-TeX-ams-R; src: local('MathJax_AMS'), local('MathJax_AMS-Regular')}
+@font-face {font-family: MJXc-TeX-ams-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/eot/MathJax_AMS-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_AMS-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/otf/MathJax_AMS-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-cal-B; src: local('MathJax_Caligraphic Bold'), local('MathJax_Caligraphic-Bold')}
+@font-face {font-family: MJXc-TeX-cal-Bx; src: local('MathJax_Caligraphic'); font-weight: bold}
+@font-face {font-family: MJXc-TeX-cal-Bw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/eot/MathJax_Caligraphic-Bold.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_Caligraphic-Bold.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/otf/MathJax_Caligraphic-Bold.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-frak-R; src: local('MathJax_Fraktur'), local('MathJax_Fraktur-Regular')}
+@font-face {font-family: MJXc-TeX-frak-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/eot/MathJax_Fraktur-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_Fraktur-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/otf/MathJax_Fraktur-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-frak-B; src: local('MathJax_Fraktur Bold'), local('MathJax_Fraktur-Bold')}
+@font-face {font-family: MJXc-TeX-frak-Bx; src: local('MathJax_Fraktur'); font-weight: bold}
+@font-face {font-family: MJXc-TeX-frak-Bw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/eot/MathJax_Fraktur-Bold.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_Fraktur-Bold.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/otf/MathJax_Fraktur-Bold.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-math-BI; src: local('MathJax_Math BoldItalic'), local('MathJax_Math-BoldItalic')}
+@font-face {font-family: MJXc-TeX-math-BIx; src: local('MathJax_Math'); font-weight: bold; font-style: italic}
+@font-face {font-family: MJXc-TeX-math-BIw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/eot/MathJax_Math-BoldItalic.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_Math-BoldItalic.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/otf/MathJax_Math-BoldItalic.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-sans-R; src: local('MathJax_SansSerif'), local('MathJax_SansSerif-Regular')}
+@font-face {font-family: MJXc-TeX-sans-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/eot/MathJax_SansSerif-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_SansSerif-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/otf/MathJax_SansSerif-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-sans-B; src: local('MathJax_SansSerif Bold'), local('MathJax_SansSerif-Bold')}
+@font-face {font-family: MJXc-TeX-sans-Bx; src: local('MathJax_SansSerif'); font-weight: bold}
+@font-face {font-family: MJXc-TeX-sans-Bw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/eot/MathJax_SansSerif-Bold.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_SansSerif-Bold.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/otf/MathJax_SansSerif-Bold.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-sans-I; src: local('MathJax_SansSerif Italic'), local('MathJax_SansSerif-Italic')}
+@font-face {font-family: MJXc-TeX-sans-Ix; src: local('MathJax_SansSerif'); font-style: italic}
+@font-face {font-family: MJXc-TeX-sans-Iw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/eot/MathJax_SansSerif-Italic.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_SansSerif-Italic.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/otf/MathJax_SansSerif-Italic.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-script-R; src: local('MathJax_Script'), local('MathJax_Script-Regular')}
+@font-face {font-family: MJXc-TeX-script-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/eot/MathJax_Script-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_Script-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/otf/MathJax_Script-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-type-R; src: local('MathJax_Typewriter'), local('MathJax_Typewriter-Regular')}
+@font-face {font-family: MJXc-TeX-type-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/eot/MathJax_Typewriter-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_Typewriter-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/otf/MathJax_Typewriter-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-cal-R; src: local('MathJax_Caligraphic'), local('MathJax_Caligraphic-Regular')}
+@font-face {font-family: MJXc-TeX-cal-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/eot/MathJax_Caligraphic-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_Caligraphic-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/otf/MathJax_Caligraphic-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-main-B; src: local('MathJax_Main Bold'), local('MathJax_Main-Bold')}
+@font-face {font-family: MJXc-TeX-main-Bx; src: local('MathJax_Main'); font-weight: bold}
+@font-face {font-family: MJXc-TeX-main-Bw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/eot/MathJax_Main-Bold.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_Main-Bold.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/otf/MathJax_Main-Bold.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-main-I; src: local('MathJax_Main Italic'), local('MathJax_Main-Italic')}
+@font-face {font-family: MJXc-TeX-main-Ix; src: local('MathJax_Main'); font-style: italic}
+@font-face {font-family: MJXc-TeX-main-Iw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/eot/MathJax_Main-Italic.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_Main-Italic.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/otf/MathJax_Main-Italic.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-main-R; src: local('MathJax_Main'), local('MathJax_Main-Regular')}
+@font-face {font-family: MJXc-TeX-main-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/eot/MathJax_Main-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_Main-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/otf/MathJax_Main-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-math-I; src: local('MathJax_Math Italic'), local('MathJax_Math-Italic')}
+@font-face {font-family: MJXc-TeX-math-Ix; src: local('MathJax_Math'); font-style: italic}
+@font-face {font-family: MJXc-TeX-math-Iw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/eot/MathJax_Math-Italic.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_Math-Italic.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/otf/MathJax_Math-Italic.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-size1-R; src: local('MathJax_Size1'), local('MathJax_Size1-Regular')}
+@font-face {font-family: MJXc-TeX-size1-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/eot/MathJax_Size1-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_Size1-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/otf/MathJax_Size1-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-size2-R; src: local('MathJax_Size2'), local('MathJax_Size2-Regular')}
+@font-face {font-family: MJXc-TeX-size2-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/eot/MathJax_Size2-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_Size2-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/otf/MathJax_Size2-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-size3-R; src: local('MathJax_Size3'), local('MathJax_Size3-Regular')}
+@font-face {font-family: MJXc-TeX-size3-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/eot/MathJax_Size3-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_Size3-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/otf/MathJax_Size3-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-size4-R; src: local('MathJax_Size4'), local('MathJax_Size4-Regular')}
+@font-face {font-family: MJXc-TeX-size4-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/eot/MathJax_Size4-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_Size4-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/otf/MathJax_Size4-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-vec-R; src: local('MathJax_Vector'), local('MathJax_Vector-Regular')}
+@font-face {font-family: MJXc-TeX-vec-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/eot/MathJax_Vector-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_Vector-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/otf/MathJax_Vector-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-vec-B; src: local('MathJax_Vector Bold'), local('MathJax_Vector-Bold')}
+@font-face {font-family: MJXc-TeX-vec-Bx; src: local('MathJax_Vector'); font-weight: bold}
+@font-face {font-family: MJXc-TeX-vec-Bw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/eot/MathJax_Vector-Bold.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_Vector-Bold.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/otf/MathJax_Vector-Bold.otf') format('opentype')}
+</style></head>
+<body><div id="MathJax_Message" style="display: none;"></div>
+<div align="center">
+<table width="100%" border="0">
+<tbody><tr valign="top">
+<td width="25%" align="left">
+  <span class="tiny"><a href="https://cgi.cse.unsw.edu.au/~cs9315/21T1/index.php">COMP9315 21T1</a></span>
+</td>
+<td width="50%" align="center">
+  <span class="heading">Assignment 1</span><br><b>Adding a Set Data Type to PostgreSQL</b>
+</td>
+<td width="25%" align="right">
+  <span class="tiny"><a href="https://cgi.cse.unsw.edu.au/~cs9315/21T1/index.php">DBMS Implementation</a></span>
+</td>
+</tr></tbody></table>
+</div>
+<div style="text-align:center;font-size:80%;color:#555555;margin-top:5px;">
+Last updated: <strong>Tuesday 9th March 11:05pm</strong> <br>
+Most recent changes are shown in <span class="red">red</span>; <br>
+older changes are shown in <span class="brown">brown</span>.
+</div>
+<div style="font-size: 16px;
+            font-weight: bold;
+            color: #cc0000;
+            background-color: #ffeeee;
+            padding: 1ex;
+            margin: 1ex;
+            border-radius: .25ex;
+            text-align: center;">
+    This is a working draft.
+    <br>
+    Small updates and clarifications will be added as needed.
+    <br>
+    No major changes are anticipated.
+</div>
+
+<nav style="text-align: center;">
+    <ul>
+        <li class="grey">jump to ...</li>
+        <li><a href="#summary">summary</a></li>
+        <li><a href="#introduction">introduction</a></li>
+        <li><a href="#setting-up">setup</a></li>
+        <li><a href="#the-intset-data-type">intsets</a></li>
+        (
+        <li><a href="#intset-values">values</a></li>
+        <li><a href="#operations-on-intsets">operations</a></li>
+        <li><a href="#representing-intsets">representing</a></li>
+        )
+        <li><a href="#changelog">changelog</a></li>
+        <li><a href="#submission">submission</a></li>
+    </ul>
+</nav>
+
+<h2 id="summary">
+    Summary
+</h2>
+<dl class="dl-horizontal">
+    <dt>Deadline</dt>
+    <dd>
+        Friday 19 March, 9:00pm
+    </dd>
+    <dt>Marks</dt>
+    <dd>
+        This assignment contributes <b>15 marks</b> toward your total mark for this course.
+    </dd>
+    <dt>Late Penalty</dt>
+    <dd>
+        <em>0.089 marks</em> off the ceiling mark for each hour late.
+    </dd>
+    <dd>
+        After <em>7 days</em> the assignment is worth <em>0 marks</em>.
+    </dd>
+    <dt>Submission</dt>
+    <dd>
+        From WebCMS:
+        <a href="https://webcms3.cse.unsw.edu.au/COMP9315/21T1/">COMP9315 website</a>,
+        -&gt;
+        <em>Assignments</em>,
+        -&gt;
+        <em>Ass1 Specification</em>,
+        -&gt;
+        <em>Make Submission</em>,
+        -&gt;
+        upload <code>intset.c</code>, <code>intset.source</code>, <var>[&lt;other .c files&gt; Makefile]</var>
+        <br>
+        or
+        <br>
+        From CSE:
+        <kbd>give cs9315 ass1 <code>intset.c</code> <code>intset.source</code> <var>[&lt;other .c files&gt; Makefile]</var></kbd>
+    </dd>
+    <dt>Pre-requisites</dt>
+    <dd>
+        Before starting this assignment, it would be useful to complete Prac Exercise P04.
+    </dd>
+</dl>
+<p>
+    This assignment aims to give you:
+</p>
+<ul>
+    <li>An understanding of how data is treated inside a DBMS</li>
+    <li>Practice in adding a new base type to PostgreSQL</li>
+</ul>
+<p>
+    The goal is to implement a new data type for PostgreSQL,
+    complete with input/output functions and a range of operations.
+</p>
+<p>
+    Make sure that you read this assignment specification
+    <em>carefully</em> and <em>completely</em>
+    before starting work on the assignment.
+    <br>
+    Questions which indicate that you haven't done this
+    will simply get the response "Please read the spec".
+</p>
+<p>
+    We will be using the following names in the discussion below:
+</p>
+<dl class="dl-horizontal">
+    <dt><code>PG_CODE</code></dt>
+    <dd>
+        The directory where your PostgreSQL source code is located
+        <br>
+        <small>(typically <code>/srvr/<var>$USER</var>/postgresql-12.5</code>)</small>
+    </dd>
+    <dt><code>PG_HOME</code></dt>
+    <dd>
+        The directory where you have installed the PostgreSQL binaries
+        <br>
+        <small>(typically <code>/srvr/<var>$USER</var>/pgsql</code>)</small>
+    </dd>
+    <dt><code>PG_DATA</code></dt>
+    <dd>
+        The directory where you have placed PostgreSQL's <code>data</code>
+        <br>
+        <small>(typically <code>/srvr/<var>$USER</var>/pgsql/data</code>)</small></dd>
+    <dt><code>PG_LOG</code></dt>
+    <dd>
+        the file to where you send PostgreSQL's log output
+        <br>
+        <small>(typically <code>/srvr/<var>$USER</var>/pgsql/log</code>)</small></dd>
+</dl>
+
+<h2 id="introduction">
+    Introduction
+</h2>
+<p>
+    PostgreSQL has an extensibility model which, among other things,
+    provides a well-defined process for adding new data types into a PostgreSQL server.
+    <br>
+    This capability has led to the development by PostgreSQL users of a number of types (such as polygons)
+    which have become part of the standard distribution.
+    <br>
+    It also means that PostgreSQL is the database of choice in research projects which aim to
+    push the boundaries of what kind of data a DBMS can manage.
+</p>
+<p>
+    In this assignment, we will be adding a new data type for dealing with <b>sets of integers</b>.
+    <br>
+    You may implement the functions for the data type in any way you like,
+    <em>provided that</em> they satisfy the semantics given below.
+    <br>
+    (in the <a href="#the-intset-data-type">intSets</a> section)
+</p>
+<p>
+    Note that arrays in PostgreSQL have some properties and operations that make them look a little bit like sets.
+    <br>
+    However, they are <em>not</em> sets and have quite different semantics to the data type that we are asking you to implement.
+</p>
+<p>
+    The process for adding new base data types in PostgreSQL is 
+described in the following sections of the PostgreSQL documentation:
+</p>
+<ul>
+            <li><a target="_blank" href="https://www.postgresql.org/docs/12//xfunc-c.html">37.10 C-Language Functions</a></li>            <li><a target="_blank" href="https://www.postgresql.org/docs/12//xtypes.html">37.13 User-defined Types</a></li>            <li><a target="_blank" href="https://www.postgresql.org/docs/12//xoper.html">37.14 User-defined Operators</a></li>            <li><a target="_blank" href="https://www.postgresql.org/docs/12//sql-createtype.html">SQL: CREATE TYPE</a></li>            <li><a target="_blank" href="https://www.postgresql.org/docs/12//sql-createoperator.html">SQL: CREATE OPERATOR</a></li>            <li><a target="_blank" href="https://www.postgresql.org/docs/12//sql-createopclass.html">SQL: CREATE OPERATOR CLASS</a></li>    </ul>
+<p>
+    Section 37.13 uses an example of a complex number type,
+    which you can use as a starting point for defining your <code>intSet</code> data type (see below).
+	Note that the complex type is a starting point <i>only</i>, to give an idea
+	on how new data types are added.
+	Don't be fooled into thinking that this assignment just requires you
+	to change the name <tt>complex</tt> to <tt>intSet</tt>; the <tt>intSet</tt>
+	type is more complex (no pun intended) than the complex number type.
+</p>
+<p>
+    There are other examples of new data types under the <tt>tutorial</tt> and
+	<tt>contrib</tt> directories.
+    These may or may not give you some useful ideas on how to implement
+	the <code>intSet</code> data type:
+</p>
+<ul>
+    <li>
+        An auto-encrypted password datatype
+        <br>
+        <code><var>PG_CODE</var>/contrib/chkpass/</code>
+    </li>
+    <li>
+        A case-insensitive character string datatype
+        <br>
+        <code><var>PG_CODE</var>/contrib/citext/</code>
+    </li>
+    <li>
+        A confidence-interval datatype
+        <br>
+        <code><var>PG_CODE</var>/contrib/seg/</code>
+    </li>
+</ul>
+
+<h2 id="setting-up">
+    Setting Up
+</h2>
+<p>
+    You ought to start this assignment with a fresh copy of PostgreSQL,
+    without any changes that you might have made for the Prac exercises
+    (unless these changes are trivial).
+    <br>
+    Note that you only need to configure, compile, and install your PostgreSQL server once for this assignment.
+    <br>
+    All subsequent compilation takes place in the <code>src/tutorial</code> directory,
+    and only requires modification of the files there.
+</p>
+<p>
+    Once you have re-installed your PostgreSQL server, you should run the following commands:
+</p>
+<pre><kbd is="shell">cd <var>PG_CODE</var>/src/tutorial</kbd>
+<kbd is="shell">cp complex.c intset.c</kbd>
+<kbd is="shell">cp complex.source intset.source</kbd>
+</pre>
+<p>
+    Once you've made the <code>intset</code> files,
+    you should also edit the <code>Makefile</code> in this directory,
+    and add the <span class="green">green</span> text
+    to the following lines:
+</p>
+<pre>MODULES = complex funcs <span class="green">intset</span>
+DATA_built = advanced.sql basics.sql complex.sql funcs.sql syscat.sql <span class="green">intset.sql</span>
+</pre>
+<p>
+    The rest of the work for this assignment involves editing
+    the <code>intset.c</code> and <code>intset.source</code> files.
+    <br>
+    In order for the <code>Makefile</code> to work properly,
+    you must use the identifier <code>_OBJWD_</code>
+    in the <code>intset.source</code> file
+    to refer to the directory holding the compiled library.
+    <br>
+    You should never directly modify the <code>intset.sql</code> file
+    produced by the <code>Makefile</code>.
+</p>
+<p>
+    If you want to use other <code>*.c</code> files
+    along with <code>intset.c</code>, then you can do so,
+    but you will need to make further changes to the <code>Makefile</code>
+    to ensure that they are compiled and linked correctly into the library.
+</p>
+<p>
+    Note that your submitted versions of
+    <code>intset.c</code> and <code>intset.source</code>
+    should not contain any references to the <code>complex</code> type
+    (because that's not what you're implementing).
+    <br>
+    Make sure that the comments in the program describes the code that <em>you</em> wrote.
+</p>
+<p>
+	Also, <em>do not</em> put testing queries in your <tt>intset.source</tt>;
+	all it should do is create the new data type.
+	Put any testing you want to do in a separate <tt>*.sql</tt>, which
+	you don't need to submit.
+	And <em>do not</em> drop the <tt>intSet</tt> type at the end of
+	<tt>intset.source</tt>. If you do, your data type will vanish before
+	we have a chance to test it.
+</p>
+<h2 id="the-intset-data-type">
+    The intSet Data Type
+</h2>
+<p>
+    We aim to define a new base type <code>intSet</code>, to store the notion of sets of integer values.
+    <br>
+    We also aim to define a useful collection of operations on the <code>intSet</code> type.
+</p>
+<p>
+    How you represent <code>intSet</code> values,
+    and implement functions to manipulate them,
+    is up to you.
+    <br>
+    However, they must satisfy the requirements below
+</p>
+<p>
+    Once implemented correctly,
+    you should be able to use your PostgreSQL server
+    to build the following kind of SQL applications:
+</p>
+<pre>create table Features (
+    id integer primary key,
+    name text
+);
+
+create table DBSystems (
+    name text primary key,
+    features intSet
+);
+
+insert into Features (id, name) values
+    (1, 'well designed'),
+    (2, 'efficient'),
+    (3, 'flexible'),
+    (4, 'robust');
+
+insert into DBSystems (name, features) values
+    ('MySQL', '{}'),
+    ('MongoDB', '{}'),
+    ('Oracle', '{2,4}'),
+    ('PostgreSQL', '{1,2,3,4}');
+</pre>
+
+<h3 id="intset-values">
+    intSet values
+</h3>
+<p>
+    In mathematics, we represent a set as a curly-bracketed, comma-separated collection of values:
+    <span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-1-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 119%; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mo fence=&quot;false&quot; stretchy=&quot;false&quot;&gt;{&lt;/mo&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mn&gt;3&lt;/mn&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mn&gt;4&lt;/mn&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mn&gt;5&lt;/mn&gt;&lt;mo fence=&quot;false&quot; stretchy=&quot;false&quot;&gt;}&lt;/mo&gt;&lt;/math&gt;" role="presentation"><span id="MJXc-Node-1" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-2" class="mjx-mrow"><span id="MJXc-Node-3" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.461em; padding-bottom: 0.576em;">{</span></span><span id="MJXc-Node-4" class="mjx-mn"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.404em; padding-bottom: 0.347em;">1</span></span><span id="MJXc-Node-5" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="margin-top: -0.169em; padding-bottom: 0.519em;">,</span></span><span id="MJXc-Node-6" class="mjx-mn MJXc-space1"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.404em; padding-bottom: 0.347em;">2</span></span><span id="MJXc-Node-7" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="margin-top: -0.169em; padding-bottom: 0.519em;">,</span></span><span id="MJXc-Node-8" class="mjx-mn MJXc-space1"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.404em; padding-bottom: 0.347em;">3</span></span><span id="MJXc-Node-9" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="margin-top: -0.169em; padding-bottom: 0.519em;">,</span></span><span id="MJXc-Node-10" class="mjx-mn MJXc-space1"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.404em; padding-bottom: 0.347em;">4</span></span><span id="MJXc-Node-11" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="margin-top: -0.169em; padding-bottom: 0.519em;">,</span></span><span id="MJXc-Node-12" class="mjx-mn MJXc-space1"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.404em; padding-bottom: 0.347em;">5</span></span><span id="MJXc-Node-13" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.461em; padding-bottom: 0.576em;">}</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo fence="false" stretchy="false">{</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>,</mo><mn>3</mn><mo>,</mo><mn>4</mn><mo>,</mo><mn>5</mn><mo fence="false" stretchy="false">}</mo></math></span></span><script type="math/tex" id="MathJax-Element-1">\{ 1, 2, 3, 4, 5 \}</script>
+    <br>
+    Such a set contains only distinct values, and no particular ordering can be imposed.
+</p>
+<p>
+    Our <code>intSet</code> values can be represented similarly.
+    <br>
+    We can have a comma-separated list of <span style="color: brown">non-negative</span> integers,
+    surrounded by a set of curly braces,
+    which is presented to and by PostgreSQL as a string.
+    <br>
+    For example:
+    <br>
+    <code>'{ 1, 2, 3, 4, 5 }'</code>.
+</p>
+<p>
+    Whitespace should not matter,
+    so <code>'{1,2,3}'</code> and
+    <code>'{ 1, 2, 3 }'</code> are equivalent.
+    <br>
+    Similarly, a set contains distinct values,
+    so <code>'{1,1,1,1,1}'</code>
+    is equivalent to <code>'{1}'</code>.
+    <br>
+    And ordering is irrelevant,
+    so <code>'{1,2,3}'</code>
+    is equivalent to <code>'{3,2,1}'</code>.
+</p>
+<p>
+    The integer values in the set are assumed to consist of
+    a sequence of digits. There are no <tt>+</tt> or <tt>-</tt> signs.
+    <br>
+    There can be leading zeroes, but they should effectively be ignored,
+    e.g. <tt>0001</tt> should be treated the same as <tt>1</tt>.
+</p>
+<p>
+    You <b>may not assume a fixed limit</b> to the size of the set.
+    <br>
+    It may contain zero or more elements, bounded by the database's capacity to store values.
+</p>
+<p style="color: brown">
+    You <b>may assume</b> that each interger value will be less than INT_MAX.
+    <br>
+    ie. each element in the set will be less than <span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-2-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 119%; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;msup&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mn&gt;31&lt;/mn&gt;&lt;/mrow&gt;&lt;/msup&gt;&lt;mo&gt;&amp;#x2212;&lt;/mo&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;/math&gt;" role="presentation"><span id="MJXc-Node-14" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-15" class="mjx-mrow"><span id="MJXc-Node-16" class="mjx-msubsup"><span class="mjx-base"><span id="MJXc-Node-17" class="mjx-mn"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.404em; padding-bottom: 0.347em;">2</span></span></span><span class="mjx-sup" style="font-size: 70.7%; vertical-align: 0.591em; padding-left: 0px; padding-right: 0.071em;"><span id="MJXc-Node-18" class="mjx-texatom" style=""><span id="MJXc-Node-19" class="mjx-mrow"><span id="MJXc-Node-20" class="mjx-mn"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.404em; padding-bottom: 0.347em;">31</span></span></span></span></span></span><span id="MJXc-Node-21" class="mjx-mo MJXc-space2"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.289em; padding-bottom: 0.404em;">−</span></span><span id="MJXc-Node-22" class="mjx-mn MJXc-space2"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.404em; padding-bottom: 0.347em;">1</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mn>2</mn><mrow class="MJX-TeXAtom-ORD"><mn>31</mn></mrow></msup><mo>−</mo><mn>1</mn></math></span></span><script type="math/tex" id="MathJax-Element-2">2^{31}-1</script>.
+</p>
+
+<table width="100%" cellpadding="4">
+    <tbody>
+    <tr>
+        <td style="border: 1px solid grey;" width="50%">
+            <h4>Valid intSets</h4>
+            <pre>'{ }'
+'{2,3,1}'
+'{6,6,6,6,6,6}'
+'{10, 9, 8, 7, 6,5,4,3,2,1}'
+'{1, 999, 13, 666, 5}'
+'{    1  ,  3  ,  5 , 7,9 }'
+'{1, 01, 001, 0001}'  <small>(same as '{1}')</small>
+'{1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20}'
+'{1,2,3,4,5,6,7,8,9,10,<small>(and then all numbers to)</small>,9999,10000}'
+<span style="color: brown">'  {1,5,7,9}'
+'{2,4,6, 8  }  '
+'{0}'
+</span></pre>
+        </td>
+        <td style="border: 1px solid grey;" width="50%">
+            <h4>Invalid intSets</h4>
+            <pre>'{a,b,c}'
+'{ a, b, c }'
+'{1, 2.0, 3}'
+'{1, {2,3}, 4}'
+'{1, 2, 3, 4, five}'
+'{ 1 2 3 4 }'
+'1 2 3 4'
+'1 2 3}'
+'{ -1 }'
+<span style="color: brown">'{1,2,3'
+'1,2,3,4,5'
+'{{1,2,3,5}'
+'{7,17,,27,37}'
+'{1,2,3,5,8,}'
+<span></span></span></pre>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h3 id="operations-on-intsets">
+    Operations on intSets
+</h3>
+<p>
+    You must implement <b>all</b> of the following operations for the <code>intSet</code> type.
+    <br>
+    (assuming <span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-3-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 119%; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;A&lt;/mi&gt;&lt;/math&gt;" role="presentation"><span id="MJXc-Node-23" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-24" class="mjx-mrow"><span id="MJXc-Node-25" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.519em; padding-bottom: 0.289em;">A</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>A</mi></math></span></span><script type="math/tex" id="MathJax-Element-3">A</script>, <span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-4-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 119%; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;B&lt;/mi&gt;&lt;/math&gt;" role="presentation"><span id="MJXc-Node-26" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-27" class="mjx-mrow"><span id="MJXc-Node-28" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.461em; padding-bottom: 0.289em;">B</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>B</mi></math></span></span><script type="math/tex" id="MathJax-Element-4">B</script>, and <span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-5-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 119%; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;S&lt;/mi&gt;&lt;/math&gt;" role="presentation"><span id="MJXc-Node-29" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-30" class="mjx-mrow"><span id="MJXc-Node-31" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.461em; padding-bottom: 0.289em; padding-right: 0.032em;">S</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>S</mi></math></span></span><script type="math/tex" id="MathJax-Element-5">S</script> are <code>intSet</code>s, and <span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-6-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 119%; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;/math&gt;" role="presentation"><span id="MJXc-Node-32" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-33" class="mjx-mrow"><span id="MJXc-Node-34" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.461em; padding-bottom: 0.289em;">i</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>i</mi></math></span></span><script type="math/tex" id="MathJax-Element-6">i</script> is an integer):
+</p>
+<dl class="dl-horizontal">
+    <dt style="color: brown"><code>i ? S</code></dt>
+    <dd>
+        intSet <span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-7-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 119%; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;S&lt;/mi&gt;&lt;/math&gt;" role="presentation"><span id="MJXc-Node-35" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-36" class="mjx-mrow"><span id="MJXc-Node-37" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.461em; padding-bottom: 0.289em; padding-right: 0.032em;">S</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>S</mi></math></span></span><script type="math/tex" id="MathJax-Element-7">S</script> contains the integer <span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-8-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 119%; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;/math&gt;" role="presentation"><span id="MJXc-Node-38" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-39" class="mjx-mrow"><span id="MJXc-Node-40" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.461em; padding-bottom: 0.289em;">i</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>i</mi></math></span></span><script type="math/tex" id="MathJax-Element-8">i</script>;
+        <br>
+        That is, <span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-9-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 119%; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mo&gt;&amp;#x2208;&lt;/mo&gt;&lt;mi&gt;S&lt;/mi&gt;&lt;/math&gt;" role="presentation"><span id="MJXc-Node-41" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-42" class="mjx-mrow"><span id="MJXc-Node-43" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.461em; padding-bottom: 0.289em;">i</span></span><span id="MJXc-Node-44" class="mjx-mo MJXc-space3"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.232em; padding-bottom: 0.404em;">∈</span></span><span id="MJXc-Node-45" class="mjx-mi MJXc-space3"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.461em; padding-bottom: 0.289em; padding-right: 0.032em;">S</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>i</mi><mo>∈</mo><mi>S</mi></math></span></span><script type="math/tex" id="MathJax-Element-9">i \in S</script>.
+    </dd>
+    <dt style="color: brown"><code># S</code></dt>
+    <dd>
+        Give the <em>cardinality</em>, or number of distinct elements in, intSet <span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-10-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 119%; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;S&lt;/mi&gt;&lt;/math&gt;" role="presentation"><span id="MJXc-Node-46" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-47" class="mjx-mrow"><span id="MJXc-Node-48" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.461em; padding-bottom: 0.289em; padding-right: 0.032em;">S</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>S</mi></math></span></span><script type="math/tex" id="MathJax-Element-10">S</script>;
+        <br>
+        That is, <span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-11-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 119%; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mo stretchy=&quot;false&quot;&gt;|&lt;/mo&gt;&lt;/mrow&gt;&lt;mi&gt;S&lt;/mi&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mo stretchy=&quot;false&quot;&gt;|&lt;/mo&gt;&lt;/mrow&gt;&lt;/math&gt;" role="presentation"><span id="MJXc-Node-49" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-50" class="mjx-mrow"><span id="MJXc-Node-51" class="mjx-texatom"><span id="MJXc-Node-52" class="mjx-mrow"><span id="MJXc-Node-53" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.461em; padding-bottom: 0.576em;">|</span></span></span></span><span id="MJXc-Node-54" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.461em; padding-bottom: 0.289em; padding-right: 0.032em;">S</span></span><span id="MJXc-Node-55" class="mjx-texatom"><span id="MJXc-Node-56" class="mjx-mrow"><span id="MJXc-Node-57" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.461em; padding-bottom: 0.576em;">|</span></span></span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow class="MJX-TeXAtom-ORD"><mo stretchy="false">|</mo></mrow><mi>S</mi><mrow class="MJX-TeXAtom-ORD"><mo stretchy="false">|</mo></mrow></math></span></span><script type="math/tex" id="MathJax-Element-11">|S|</script>.
+    </dd>
+    <dt style="color: brown"><code>A &gt;@ B</code></dt>
+    <dd style="color: brown">
+        Does intSet <span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-12-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 119%; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;A&lt;/mi&gt;&lt;/math&gt;" role="presentation"><span id="MJXc-Node-58" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-59" class="mjx-mrow"><span id="MJXc-Node-60" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.519em; padding-bottom: 0.289em;">A</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>A</mi></math></span></span><script type="math/tex" id="MathJax-Element-12">A</script> contain all the values in intSet <span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-13-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 119%; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;B&lt;/mi&gt;&lt;/math&gt;" role="presentation"><span id="MJXc-Node-61" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-62" class="mjx-mrow"><span id="MJXc-Node-63" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.461em; padding-bottom: 0.289em;">B</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>B</mi></math></span></span><script type="math/tex" id="MathJax-Element-13">B</script>?
+        <br>
+        ie, for every element of <span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-14-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 119%; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;B&lt;/mi&gt;&lt;/math&gt;" role="presentation"><span id="MJXc-Node-64" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-65" class="mjx-mrow"><span id="MJXc-Node-66" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.461em; padding-bottom: 0.289em;">B</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>B</mi></math></span></span><script type="math/tex" id="MathJax-Element-14">B</script>, is it an element of <span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-15-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 119%; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;A&lt;/mi&gt;&lt;/math&gt;" role="presentation"><span id="MJXc-Node-67" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-68" class="mjx-mrow"><span id="MJXc-Node-69" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.519em; padding-bottom: 0.289em;">A</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>A</mi></math></span></span><script type="math/tex" id="MathJax-Element-15">A</script>?
+        <br>
+        That is, <span class="color: red"> the improper superset (<span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-16-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 119%; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;A&lt;/mi&gt;&lt;mo&gt;&amp;#x2287;&lt;/mo&gt;&lt;mi&gt;B&lt;/mi&gt;&lt;/math&gt;" role="presentation"><span id="MJXc-Node-70" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-71" class="mjx-mrow"><span id="MJXc-Node-72" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.519em; padding-bottom: 0.289em;">A</span></span><span id="MJXc-Node-73" class="mjx-mo MJXc-space3"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.347em; padding-bottom: 0.461em;">⊇</span></span><span id="MJXc-Node-74" class="mjx-mi MJXc-space3"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.461em; padding-bottom: 0.289em;">B</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>A</mi><mo>⊇</mo><mi>B</mi></math></span></span><script type="math/tex" id="MathJax-Element-16">A \supseteq B</script>)</span>
+    </dd>
+    <dt style="color: brown"><code>A @&lt; B</code></dt>
+    <dd>
+        Does intSet <span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-17-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 119%; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;A&lt;/mi&gt;&lt;/math&gt;" role="presentation"><span id="MJXc-Node-75" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-76" class="mjx-mrow"><span id="MJXc-Node-77" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.519em; padding-bottom: 0.289em;">A</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>A</mi></math></span></span><script type="math/tex" id="MathJax-Element-17">A</script> contain only values in intSet <span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-18-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 119%; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;B&lt;/mi&gt;&lt;/math&gt;" role="presentation"><span id="MJXc-Node-78" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-79" class="mjx-mrow"><span id="MJXc-Node-80" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.461em; padding-bottom: 0.289em;">B</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>B</mi></math></span></span><script type="math/tex" id="MathJax-Element-18">B</script>?
+        <br>
+        ie, for every element of <span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-19-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 119%; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;A&lt;/mi&gt;&lt;/math&gt;" role="presentation"><span id="MJXc-Node-81" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-82" class="mjx-mrow"><span id="MJXc-Node-83" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.519em; padding-bottom: 0.289em;">A</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>A</mi></math></span></span><script type="math/tex" id="MathJax-Element-19">A</script>, is it an element of <span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-20-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 119%; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;B&lt;/mi&gt;&lt;/math&gt;" role="presentation"><span id="MJXc-Node-84" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-85" class="mjx-mrow"><span id="MJXc-Node-86" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.461em; padding-bottom: 0.289em;">B</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>B</mi></math></span></span><script type="math/tex" id="MathJax-Element-20">B</script>?
+        <br>
+        That is, <span class="color: red"> the improper subset (<span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-21-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 119%; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;A&lt;/mi&gt;&lt;mo&gt;&amp;#x2286;&lt;/mo&gt;&lt;mi&gt;B&lt;/mi&gt;&lt;/math&gt;" role="presentation"><span id="MJXc-Node-87" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-88" class="mjx-mrow"><span id="MJXc-Node-89" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.519em; padding-bottom: 0.289em;">A</span></span><span id="MJXc-Node-90" class="mjx-mo MJXc-space3"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.347em; padding-bottom: 0.461em;">⊆</span></span><span id="MJXc-Node-91" class="mjx-mi MJXc-space3"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.461em; padding-bottom: 0.289em;">B</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>A</mi><mo>⊆</mo><mi>B</mi></math></span></span><script type="math/tex" id="MathJax-Element-21">A \subseteq B</script>)</span>
+    </dd>
+    <dt><code>A = B</code></dt>
+    <dd>
+        intSets <span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-22-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 119%; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;A&lt;/mi&gt;&lt;/math&gt;" role="presentation"><span id="MJXc-Node-92" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-93" class="mjx-mrow"><span id="MJXc-Node-94" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.519em; padding-bottom: 0.289em;">A</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>A</mi></math></span></span><script type="math/tex" id="MathJax-Element-22">A</script> and <span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-23-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 119%; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;B&lt;/mi&gt;&lt;/math&gt;" role="presentation"><span id="MJXc-Node-95" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-96" class="mjx-mrow"><span id="MJXc-Node-97" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.461em; padding-bottom: 0.289em;">B</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>B</mi></math></span></span><script type="math/tex" id="MathJax-Element-23">B</script> are equal;
+        <br>
+        That is, intSet <span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-24-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 119%; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;A&lt;/mi&gt;&lt;/math&gt;" role="presentation"><span id="MJXc-Node-98" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-99" class="mjx-mrow"><span id="MJXc-Node-100" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.519em; padding-bottom: 0.289em;">A</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>A</mi></math></span></span><script type="math/tex" id="MathJax-Element-24">A</script> contains all the values of intSet <span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-25-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 119%; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;B&lt;/mi&gt;&lt;/math&gt;" role="presentation"><span id="MJXc-Node-101" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-102" class="mjx-mrow"><span id="MJXc-Node-103" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.461em; padding-bottom: 0.289em;">B</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>B</mi></math></span></span><script type="math/tex" id="MathJax-Element-25">B</script> and intSet <span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-26-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 119%; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;B&lt;/mi&gt;&lt;/math&gt;" role="presentation"><span id="MJXc-Node-104" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-105" class="mjx-mrow"><span id="MJXc-Node-106" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.461em; padding-bottom: 0.289em;">B</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>B</mi></math></span></span><script type="math/tex" id="MathJax-Element-26">B</script> contains all the values of intSet <span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-27-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 119%; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;A&lt;/mi&gt;&lt;/math&gt;" role="presentation"><span id="MJXc-Node-107" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-108" class="mjx-mrow"><span id="MJXc-Node-109" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.519em; padding-bottom: 0.289em;">A</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>A</mi></math></span></span><script type="math/tex" id="MathJax-Element-27">A</script>;
+        <br>
+        That is, every element in <span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-28-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 119%; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;A&lt;/mi&gt;&lt;/math&gt;" role="presentation"><span id="MJXc-Node-110" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-111" class="mjx-mrow"><span id="MJXc-Node-112" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.519em; padding-bottom: 0.289em;">A</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>A</mi></math></span></span><script type="math/tex" id="MathJax-Element-28">A</script> can be found in <span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-29-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 119%; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;B&lt;/mi&gt;&lt;/math&gt;" role="presentation"><span id="MJXc-Node-113" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-114" class="mjx-mrow"><span id="MJXc-Node-115" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.461em; padding-bottom: 0.289em;">B</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>B</mi></math></span></span><script type="math/tex" id="MathJax-Element-29">B</script>, and vice versa.
+    </dd>
+    <dt style="color: brown"><code>A &lt;&gt; B</code></dt>
+    <dd style="color: brown">
+        intSets <span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-30-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 119%; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;A&lt;/mi&gt;&lt;/math&gt;" role="presentation"><span id="MJXc-Node-116" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-117" class="mjx-mrow"><span id="MJXc-Node-118" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.519em; padding-bottom: 0.289em;">A</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>A</mi></math></span></span><script type="math/tex" id="MathJax-Element-30">A</script> and <span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-31-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 119%; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;B&lt;/mi&gt;&lt;/math&gt;" role="presentation"><span id="MJXc-Node-119" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-120" class="mjx-mrow"><span id="MJXc-Node-121" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.461em; padding-bottom: 0.289em;">B</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>B</mi></math></span></span><script type="math/tex" id="MathJax-Element-31">B</script> are not equal;
+        <br>
+        That is, intSet <span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-32-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 119%; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;A&lt;/mi&gt;&lt;/math&gt;" role="presentation"><span id="MJXc-Node-122" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-123" class="mjx-mrow"><span id="MJXc-Node-124" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.519em; padding-bottom: 0.289em;">A</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>A</mi></math></span></span><script type="math/tex" id="MathJax-Element-32">A</script> doesn't contain all the values of intSet <span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-33-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 119%; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;B&lt;/mi&gt;&lt;/math&gt;" role="presentation"><span id="MJXc-Node-125" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-126" class="mjx-mrow"><span id="MJXc-Node-127" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.461em; padding-bottom: 0.289em;">B</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>B</mi></math></span></span><script type="math/tex" id="MathJax-Element-33">B</script> or intSet <span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-34-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 119%; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;B&lt;/mi&gt;&lt;/math&gt;" role="presentation"><span id="MJXc-Node-128" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-129" class="mjx-mrow"><span id="MJXc-Node-130" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.461em; padding-bottom: 0.289em;">B</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>B</mi></math></span></span><script type="math/tex" id="MathJax-Element-34">B</script> doesn't contain all the values of intSet <span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-35-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 119%; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;A&lt;/mi&gt;&lt;/math&gt;" role="presentation"><span id="MJXc-Node-131" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-132" class="mjx-mrow"><span id="MJXc-Node-133" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.519em; padding-bottom: 0.289em;">A</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>A</mi></math></span></span><script type="math/tex" id="MathJax-Element-35">A</script>;
+        <br>
+        That is, some element in <span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-36-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 119%; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;A&lt;/mi&gt;&lt;/math&gt;" role="presentation"><span id="MJXc-Node-134" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-135" class="mjx-mrow"><span id="MJXc-Node-136" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.519em; padding-bottom: 0.289em;">A</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>A</mi></math></span></span><script type="math/tex" id="MathJax-Element-36">A</script> cannot be found in <span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-37-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 119%; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;B&lt;/mi&gt;&lt;/math&gt;" role="presentation"><span id="MJXc-Node-137" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-138" class="mjx-mrow"><span id="MJXc-Node-139" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.461em; padding-bottom: 0.289em;">B</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>B</mi></math></span></span><script type="math/tex" id="MathJax-Element-37">B</script>, or vice versa.
+    </dd>
+    <dt><code>A &amp;&amp; B</code></dt>
+    <dd>
+        Takes the <em>set intersection</em>, and produces an intSet containing the elements common to <span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-38-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 119%; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;A&lt;/mi&gt;&lt;/math&gt;" role="presentation"><span id="MJXc-Node-140" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-141" class="mjx-mrow"><span id="MJXc-Node-142" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.519em; padding-bottom: 0.289em;">A</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>A</mi></math></span></span><script type="math/tex" id="MathJax-Element-38">A</script> and <span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-39-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 119%; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;B&lt;/mi&gt;&lt;/math&gt;" role="presentation"><span id="MJXc-Node-143" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-144" class="mjx-mrow"><span id="MJXc-Node-145" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.461em; padding-bottom: 0.289em;">B</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>B</mi></math></span></span><script type="math/tex" id="MathJax-Element-39">B</script>;
+        <br>
+        That is, <span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-40-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 119%; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;A&lt;/mi&gt;&lt;mo&gt;&amp;#x2229;&lt;/mo&gt;&lt;mi&gt;B&lt;/mi&gt;&lt;/math&gt;" role="presentation"><span id="MJXc-Node-146" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-147" class="mjx-mrow"><span id="MJXc-Node-148" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.519em; padding-bottom: 0.289em;">A</span></span><span id="MJXc-Node-149" class="mjx-mo MJXc-space2"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.289em; padding-bottom: 0.347em;">∩</span></span><span id="MJXc-Node-150" class="mjx-mi MJXc-space2"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.461em; padding-bottom: 0.289em;">B</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>A</mi><mo>∩</mo><mi>B</mi></math></span></span><script type="math/tex" id="MathJax-Element-40">A \cap B</script>.
+    </dd>
+    <dt><code>A || B</code></dt>
+    <dd>
+        Takes the <em>set union</em>, and produces an intSet containing all the elements of <span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-41-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 119%; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;A&lt;/mi&gt;&lt;/math&gt;" role="presentation"><span id="MJXc-Node-151" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-152" class="mjx-mrow"><span id="MJXc-Node-153" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.519em; padding-bottom: 0.289em;">A</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>A</mi></math></span></span><script type="math/tex" id="MathJax-Element-41">A</script> and <span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-42-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 119%; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;B&lt;/mi&gt;&lt;/math&gt;" role="presentation"><span id="MJXc-Node-154" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-155" class="mjx-mrow"><span id="MJXc-Node-156" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.461em; padding-bottom: 0.289em;">B</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>B</mi></math></span></span><script type="math/tex" id="MathJax-Element-42">B</script>;
+        <br>
+        That is, <span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-43-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 119%; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;A&lt;/mi&gt;&lt;mo&gt;&amp;#x222A;&lt;/mo&gt;&lt;mi&gt;B&lt;/mi&gt;&lt;/math&gt;" role="presentation"><span id="MJXc-Node-157" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-158" class="mjx-mrow"><span id="MJXc-Node-159" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.519em; padding-bottom: 0.289em;">A</span></span><span id="MJXc-Node-160" class="mjx-mo MJXc-space2"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.289em; padding-bottom: 0.347em;">∪</span></span><span id="MJXc-Node-161" class="mjx-mi MJXc-space2"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.461em; padding-bottom: 0.289em;">B</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>A</mi><mo>∪</mo><mi>B</mi></math></span></span><script type="math/tex" id="MathJax-Element-43">A \cup B</script>.
+    </dd>
+    <dt><code>A !! B</code></dt>
+    <dd>
+        Takes the <em>set disjunction</em>, and produces an intSet containing elements that are in <span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-44-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 119%; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;A&lt;/mi&gt;&lt;/math&gt;" role="presentation"><span id="MJXc-Node-162" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-163" class="mjx-mrow"><span id="MJXc-Node-164" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.519em; padding-bottom: 0.289em;">A</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>A</mi></math></span></span><script type="math/tex" id="MathJax-Element-44">A</script> and not in <span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-45-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 119%; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;B&lt;/mi&gt;&lt;/math&gt;" role="presentation"><span id="MJXc-Node-165" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-166" class="mjx-mrow"><span id="MJXc-Node-167" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.461em; padding-bottom: 0.289em;">B</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>B</mi></math></span></span><script type="math/tex" id="MathJax-Element-45">B</script>,
+        <br>
+        or that are in <span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-46-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 119%; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;B&lt;/mi&gt;&lt;/math&gt;" role="presentation"><span id="MJXc-Node-168" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-169" class="mjx-mrow"><span id="MJXc-Node-170" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.461em; padding-bottom: 0.289em;">B</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>B</mi></math></span></span><script type="math/tex" id="MathJax-Element-46">B</script> and not in <span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-47-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 119%; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;A&lt;/mi&gt;&lt;/math&gt;" role="presentation"><span id="MJXc-Node-171" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-172" class="mjx-mrow"><span id="MJXc-Node-173" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.519em; padding-bottom: 0.289em;">A</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>A</mi></math></span></span><script type="math/tex" id="MathJax-Element-47">A</script>.
+    </dd>
+    <dt><code>A - B</code></dt>
+    <dd>
+        Takes the <em>set difference</em>, and produces an intSet containing elements that are in <span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-48-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 119%; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;A&lt;/mi&gt;&lt;/math&gt;" role="presentation"><span id="MJXc-Node-174" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-175" class="mjx-mrow"><span id="MJXc-Node-176" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.519em; padding-bottom: 0.289em;">A</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>A</mi></math></span></span><script type="math/tex" id="MathJax-Element-48">A</script> and not in <span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-49-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 119%; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;B&lt;/mi&gt;&lt;/math&gt;" role="presentation"><span id="MJXc-Node-177" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-178" class="mjx-mrow"><span id="MJXc-Node-179" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.461em; padding-bottom: 0.289em;">B</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>B</mi></math></span></span><script type="math/tex" id="MathJax-Element-49">B</script>.
+        <br>
+        Note that this is <em>not</em> the same as <code>A !! B</code>.
+    </dd>
+</dl>
+<p>
+    Below are examples of how you might use <code>intSet</code>s, to illustrate the semantics.
+    <br>
+    You can use these as an initial test set; we will supply a more comprehensive test suite later.
+</p>
+<pre><kbd is="psql" db="db">create table mySets (id integer primary key, iset intSet);</kbd>
+CREATE TABLE
+<kbd is="psql" db="db">insert into mySets values (1, '{1,2,3}');</kbd>
+INSERT 0 1
+<kbd is="psql" db="db">insert into mySets values (2, '{1,3,1,3,1}');</kbd>
+INSERT 0 1
+<kbd is="psql" db="db">insert into mySets values (3, '{3,4,5}');</kbd>
+INSERT 0 1
+<kbd is="psql" db="db">insert into mySets values (4, '{4,5}');</kbd>
+INSERT 0 1
+<kbd is="psql" db="db">select * from mySets order by id;</kbd>
+ id |  iset
+----+---------
+  1 | {1,2,3}
+  2 | {1,3}
+  3 | {3,4,5}
+  4 | {4,5}
+(4 rows)
+<span class="comment">-- get all pairs of tuples where the second iset is a subset of first iset</span>
+<kbd is="psql" db="db">select a.*, b.* from mySets a, mySets b</kbd>
+<kbd is="psql," db="db">where (b.iset @&lt; a.iset) and a.id != b.id;</kbd>
+ id |  iset   | id | iset
+----+---------+----+-------
+  1 | {1,2,3} |  2 | {1,3}
+  3 | {3,4,5} |  4 | {4,5}
+(2 rows)
+<span class="comment">-- insert extra values into the iset in tuple #4 via union</span>
+<kbd is="psql" db="db">update mySets set iset = iset || '{5,6,7,8}' where id = 4;</kbd>
+UPDATE 1
+<kbd is="psql" db="db">select * from mySets where id=4;</kbd>
+ id |    iset
+----+-------------
+  4 | {4,5,6,7,8}
+(1 row)
+<span class="comment">-- tuple #4 is no longer a subset of tuple #3</span>
+<kbd is="psql" db="db">select a.*, b.* from mySets a, mySets b</kbd>
+<kbd is="psql," db="db">where (b.iset @&lt; a.iset) and a.id != b.id;</kbd>
+ id |  iset   | id | iset
+----+---------+----+-------
+  1 | {1,2,3} |  2 | {1,3}
+(1 row)
+<span class="comment">-- get the cardinality (size) of each intSet</span>
+<kbd is="psql" db="db">select id, iset, (#iset) as card from mySets order by id;</kbd>
+ id |    iset     | card
+----+-------------+------
+  1 | {1,2,3}     |    3
+  2 | {1,3}       |    2
+  3 | {3,4,5}     |    3
+  4 | {4,5,6,7,8} |    5
+(4 rows)
+<span class="comment">-- form the intersection of each pair of sets</span>
+<kbd is="psql" db="db">select a.iset, b.iset, a.iset &amp;&amp; b.iset</kbd>
+<kbd is="psql," db="db">from mySets a, mySets b where a.id &lt; b.id;</kbd>
+  iset   |    iset     | ?column?
+---------+-------------+----------
+ {1,2,3} | {1,3}       | {1,3}
+ {1,2,3} | {3,4,5}     | {3}
+ {1,2,3} | {4,5,6,7,8} | {}
+ {1,3}   | {3,4,5}     | {3}
+ {1,3}   | {4,5,6,7,8} | {}
+ {3,4,5} | {4,5,6,7,8} | {4,5}
+(6 rows)
+<kbd is="psql" db="db">delete from mySets where iset @&lt; '{1,2,3,4,5,6}';</kbd>
+DELETE 3
+<kbd is="psql" db="db">select * from mySets;</kbd>
+ id |    iset
+----+-------------
+  4 | {4,5,6,7,8}
+(1 row)
+<span class="comment">-- etc. etc. etc.</span>
+</pre>
+<p>
+    You should think of some more tests of your own.
+    <br>
+    In particular, make sure that you check that your code works with large <code>intSet</code>s (e.g. cardinality ≥ 1000).
+    <br>
+    If you come up with any tests that you think are particularly clever, feel free to post them in the comments section below.
+</p>
+
+<h3 id="representing-intsets">
+    Representing intSets
+</h3>
+<p>
+    The first thing you need to do is to decide on an internal representation for your <code>intSet</code> data type.
+    <br>
+    You should do this <em>after</em> you have understood the description of the operators above.
+    <br>
+    Since what they require may affect how you decide on the representation of your <code>intSet</code> values.
+</p>
+<p>
+    Note that because of the requirement that an <code>intSet</code> can be arbitrarily large (see above),
+    <br>
+    you <b>cannot</b> have a representation that uses a fixed-size object to hold values of type <code>intSet</code>.
+</p>
+<p>
+    When you read strings representing <code>intSet</code> values, they are converted into your internal form,
+    <br>
+    stored in the database in this form, and operations on <code>intSet</code> values are carried out using this data structure.
+    <br>
+    When you display <code>intSet</code> values,
+    you should show them in a canonical form,
+    regardless of how they were entered or how they are stored.
+    <br>
+    The canonical form for output (at least) should include no
+    spaces, and should have elements in ascending order.
+</p>
+<p>
+    The first functions you need to write
+    are ones to read and display values of type <code>intSet</code>.
+    <br>
+    You should write analogues of the functions
+    <code>complex_in()</code> and <code>complex_out()</code>
+    that are defined in the file <code>complex.c</code>.
+    <br>
+    Suitable names for these functions would be e.g.
+    <br>
+    <code>intset_in()</code> and <code>intset_out()</code>.
+    <br>
+    Make sure that you use the <code>V1</code> style function interface
+    (as is done in <code>complex.c</code>).
+</p>
+<p>
+    Note that the two input/output functions should be complementary,
+    meaning that any string displayed by the output function
+    must be able to be read using the input function.
+    <br>
+    There is no requirement for you to retain the precise string that was used for input
+    <br>
+    (e.g. you could store the <code>intSet</code> value internally in canonical form).
+</p>
+<p>
+    Note that you are <em>not</em> required
+    to define binary input/output functions called
+    <code>receive_function</code> and <code>send_function</code>
+    in the PostgreSQL documentation, and called
+    <code>complex_send()</code> and <code>complex_recv()</code>
+    in the <code>complex.c</code> file.
+</p>
+<p>
+    <strong>Hint:</strong>
+    test out as many of your C functions as you can
+    <em>outside</em> PostgreSQL
+    <br>
+    (e.g., write a simple test driver)
+    <br>
+    Before you try to install them in PostgreSQL.
+    <br>
+    This will make debugging much easier.
+</p>
+<p>
+    You should ensure that your definitions
+    <em>capture the full semantics of the operators</em>
+    <br>
+    (e.g. specify commutativity if the operator is commutative).
+</p>
+
+<h2 id="changelog">ChangeLog</h2>
+<ul>
+            <li>
+            <strong>v1.0</strong>
+            (2021-02-26 15:00:00+10:00)<br>
+            <ul>
+                                    <li>released Assignment 1</li>
+                            </ul>
+        </li>
+            <li>
+            <strong>v1.1</strong>
+            (2021-02-27 11:00:00+10:00)<br>
+            <ul>
+                                    <li>Modify the "Operations on intSets" section</li>
+                                    <li>Change the symbol for "contains" from '&lt;@' to '?'</li>
+                                    <li>Change the symbol for "cardinality" from '@' to '#'</li>
+                                    <li>Change the symbol for "subset" from '@&gt;' to '@&lt;'</li>
+                                    <li>Add the "superset" operation, using the '&gt;@' symbol</li>
+                                    <li>Add the "inequality" operation, using the '&lt;&gt;' symbol</li>
+                            </ul>
+        </li>
+            <li>
+            <strong>v1.2</strong>
+            (2021-02-26 16:00:00+10:00)<br>
+            <ul>
+                                    <li>Corrected typo in examples of Valid IntSets</li>
+                                    <li>Add addidtional examples of (In)Valid IntSets</li>
+                                    <li>Add an upper bound for the size of each element in an IntSet</li>
+                            </ul>
+        </li>
+            <li>
+            <strong>v1.3</strong>
+            (2021-02-26 18:00:00+10:00)<br>
+            <ul>
+                                    <li>Correct superset and subset symbles used in "Operations on intSets"</li>
+                            </ul>
+        </li>
+            <li>
+            <strong>v1.4</strong>
+            (2021-03-01 18:00:00+10:00)<br>
+            <ul>
+                                    <li>Moved deadline forward to 9pm to be consistent with CSE policy</li>
+                            </ul>
+        </li>
+    </ul>
+
+<h2 id="submission">Submission</h2>
+<p>
+    You need to submit two files:
+    <br>
+    <code>intset.c</code> - containing the C functions
+    that implement the internals of the <code>intSet</code> data type.
+    <br>
+    <code>intset.source</code> - containing the template SQL commands
+    to install the <code>intSet</code> data type into a PostgreSQL server.
+</p>
+<p>
+    Do <em>not</em> submit the <code>intset.sql</code> file,
+    since it contains absolute file names which are not useful in our test environment.
+    <br>
+    If your system requires other <code>*.c</code> files, you should submit them,
+    along with the modified <code>Makefile</code> from the <code>src/tutorial</code> directory.
+</p>
+<p>
+    <em>Do not</em> include:
+</p>
+<ul>
+    <li><code>create table ...</code></li>
+    <li><code>insert into ...</code></li>
+    <li><code>select ...</code></li>
+    <li><code>drop type ...</code></li>
+</ul>
+<p>
+    Or any other statements not directly needed for creating
+    the <code>intSet</code> data type in <code>intset.source</code>.
+</p>
+
+<p>
+    Have fun, <em>jas</em> and <em>dylan</em>.
+</p>
+
+<script src="COMP9315%2021T1%20-%20Assignment%201_files/latest.js" async=""></script>
+
+
+
+
+</body></html>
